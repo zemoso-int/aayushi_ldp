@@ -1,0 +1,165 @@
+Calculating the Perimeter of a Shape
+
+Question 1
+What is the perimeter of the shape made from the file datatest4.txt whose contents are shown below (just give to two decimal places)?
+
+-3, 9
+
+-8, 7
+
+-12, 4
+
+-6, -2
+
+-4, -6
+
+2, -8
+
+6, -5
+
+10, -3
+
+8, 5
+
+4, 8
+
+
+Ans- 59.45
+--------------------------------------------------------------------------------------------
+Question 2
+What is the average length of a side in the shape made from the file datatest4.txt whose contents are shown below (just give to two decimal places)?
+
+-3, 9
+
+-8, 7
+
+-12, 4
+
+-6, -2
+
+-4, -6
+
+2, -8
+
+6, -5
+
+10, -3
+
+8, 5
+
+4, 8
+
+Ans-5.94
+--------------------------------------------------------------------------------------------
+3.
+Question 3
+What is the longest side in the shape made from the file datatest4.txt whose contents are shown below (just give to two decimal places)?
+
+-3, 9
+
+-8, 7
+
+-12, 4
+
+-6, -2
+
+-4, -6
+
+2, -8
+
+6, -5
+
+10, -3
+
+8, 5
+
+4, 8
+
+Ans-8.48
+--------------------------------------------------------------------------------------------
+Question 4
+What is the largest perimeter of a shape made from the shapes in files example1.txt, example2.txt, example3.txt and example4.txt (just give to two decimal places)?  
+
+1 point
+28.84
+5.
+Question 5
+What is the name of the file that has the shape with the largest perimeter from the four files example1.txt, example2.txt, example3.txt and example4.txt? 
+
+
+Ans-example3.txt
+--------------------------------------------------------------------------------------------
+6.
+Question 6
+The method getNumPoints returns the number of points in a Shape s. 
+
+Which one of the following is NOT a correct implementation of getNumPoints?
+a.
+public int getNumPoints (Shape s) {
+  int count = 0;
+  for (Point p : s.getPoints()) {
+    count = count + count;
+  }
+  return count;
+}
+
+b.
+public int getNumPoints (Shape s) {
+  int count = 0;
+  for (Point p : s.getPoints()) {
+    int newPoint = 1;
+    count = count + newPoint;
+  }
+  return count;
+}
+
+c.
+public int getNumPoints (Shape s) {
+  int count = 0;
+  int newPoint = 1;
+  for (Point p : s.getPoints()) {
+    count = count + newPoint;
+  }
+  return count;
+}
+
+d.
+public int getNumPoints (Shape s) {
+  int count = 0;
+  for (Point p : s.getPoints()) {
+    count = count + 1;
+  }
+  return count;
+}
+Ans-a
+--------------------------------------------------------------------------------------------
+Question 7
+Consider the following code for the function mysteryShape that has one parameter a Shape s and calls the function getNumPoints from the assignment. 
+
+public double mysteryShape (Shape s) {
+  double tmp = 0;
+  for (Point p : s.getPoints()) {
+    
+    if (p.getX() > 0) {
+      
+      if (p.getY() < 0) {
+        tmp = tmp + 1;
+      }
+    }
+
+Which one of the following best describes the purpose of this function?
+
+a.
+
+The function computes the percentage of those points from the Shape s that have a positive X and a negative Y. 
+
+b.
+The function computes the sum of those points from the Shape s that have a positive X and a negative Y. 
+
+c.
+The function computes the sum of those points from the Shape s that have a positive X or  a negative Y.
+
+d.
+The function computes the percentage of those points from the Shape s that have a positive X or a negative Y.
+Ans-a
+

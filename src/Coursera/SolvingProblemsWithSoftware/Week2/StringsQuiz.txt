@@ -1,0 +1,74 @@
+1.
+Question 1
+Consider finding all the YouTube links on a web page. What is the video for the second YouTube link on the web page http://www.dukelearntoprogram.com/course2/data/manylinks.html about?
+
+a.STEM
+
+
+b.Potatoes
+
+
+c.Walt Disney cartoons
+
+
+d.Turkeys, Ducks and Quails
+
+Ans.d
+
+Question 2
+Consider the following mystery method.
+
+1234567891011121314151617181920
+public String mystery(String dna) {
+  int pos = dna.indexOf("T");
+  int count = 0;
+  int startPos = 0;
+  String newDna = "";
+  if (pos == -1) {
+    return dna;
+  }
+  while (count < 3) {
+    count += 1;
+
+Which of the following best describes what it does?
+
+
+a.The method mystery is given a string and it returns a string which is the same string but with the each T each replaced with two T’s.
+
+
+b.The method mystery is given a string and it returns a string which is three copies of the original string.
+
+
+c.The method mystery is given a string and it returns a string which is the same string but with the first three T’s each replaced with two T’s.
+
+
+d.The method mystery is given a string and it returns a string which is the same string but with all the T’s removed.
+
+
+e.The method mystery is given a string and it returns a string which is the same string but with the first three T’s removed.
+
+Ans-e
+
+Question 3
+Use the following data file to answer this question: http://www.cs.duke.edu/~rodger/GRch38dnapart.fa. How many genes are in this file?
+
+Enter answer here 69
+
+Question 4
+Use the following data file to answer this question: http://www.cs.duke.edu/~rodger/GRch38dnapart.fa. How many genes in this file are longer than 60?
+
+Enter answer here 23
+
+Question 5
+Use the following data file to answer this question: http://www.cs.duke.edu/~rodger/GRch38dnapart.fa. How many genes in this file have cgRatio greater than 0.35?
+
+Enter answer here 40
+
+Question 6
+Use the following data file to answer this question which represents one long strand of DNA: http://www.cs.duke.edu/~rodger/GRch38dnapart.fa. How many times does the codon CTG appear in this strand of DNA?
+
+Enter answer here 224
+
+Question 7
+Use the following data file to answer this question: http://www.cs.duke.edu/~rodger/GRch38dnapart.fa. What is the length of the longest gene in the collection of genes found in this file?
+Enter answer here 489
