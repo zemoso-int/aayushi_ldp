@@ -10,11 +10,15 @@ public class SearchFileInDirectory {
     /**
      * This method searches files recursively in directory and its sub-directories
      *
-     * @param regex this is regex pattern to be matched with file names.
+     * @param fileNameRegex         this is regex pattern to be matched with file names.
      * @param directoryAbsolutePath this is the current directory we're searching in.
      */
-    static void findAndPrintFiles(String regex, String directoryAbsolutePath) {
-        Pattern pattern = Pattern.compile(regex);
+    protected int fileCount;
+
+    protected void findAndPrintFiles(String fileNameRegex, String directoryAbsolutePath) {
+        if (fileNameRegex == "")
+            return;
+        Pattern pattern = Pattern.compile(fileNameRegex);
         File directoryNode = new File(directoryAbsolutePath);
         File[] files = directoryNode.listFiles();
         if (files == null) {
@@ -25,12 +29,10 @@ public class SearchFileInDirectory {
                 Matcher matcher = pattern.matcher(file.getName());
                 if (matcher.find()) {
                     System.out.println(file.getAbsolutePath());
+                    fileCount++;
                 }
-            }
-            //Search in the subdirectory
-            else {
-                findAndPrintFiles(regex, file.getAbsolutePath());
-            }
+            } else
+                findAndPrintFiles(fileNameRegex, file.getAbsolutePath());
         }
     }
 }

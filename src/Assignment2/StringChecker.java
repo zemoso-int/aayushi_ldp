@@ -1,24 +1,22 @@
 package Assignment2;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class StringChecker {
     /* Time Complexity - O(n)
     Space complexity -  O(1)
     */
-    static boolean areAllAlphabetsPresent(String inputString) {
-
+    protected boolean areAllAlphabetsPresent(String inputString) {
+        if (inputString == null || inputString == "")
+            return false;
         inputString = inputString.toLowerCase();
-        inputString = inputString.replaceAll("[^a-z]", "");
-        boolean allAlphabets[] = new boolean[26];
-        Arrays.fill(allAlphabets, false);
+        Set<Character> alphabets = new HashSet<Character>();
         for (char ch : inputString.toCharArray()) {
-            allAlphabets[ch - 'a'] = true;
+            if(Character.isLetter(ch))
+            alphabets.add(ch);
         }
-        for (boolean b : allAlphabets) {
-            if (b == false)
-                return false;
-        }
-        return true;
+        return alphabets.size()==26;
     }
 }

@@ -9,40 +9,44 @@ import java.util.regex.Pattern;
 
 public class PingHost {
 
-    static float computeMedianOfTimeToPing(String host) throws IOException {
-        int pingCount = 2, index = 0;
-        String line;
-
-        //array to store time taken to ping each time
+    /**
+     * Method that pings the given hostname. It executes the ping command from the terminal and
+     * time is found by reading lines from terminal. It prints the median time.
+     * @param host Hostname
+     * @param pingCount Number of times to ping, useful in calculating median
+     */
+     float computeMedianOfTimeToPing(String host, int pingCount) throws IOException {
+        int pingTimeArrayIndex = 0;
+        String pingOutputLine;
         float pingTimeArray[] = new float[pingCount];
         String numPings = String.valueOf(pingCount);
+
         ProcessBuilder process = new ProcessBuilder("ping", "-c", numPings, host);
         Process pingProcess = process.start();
 
-        //reading the output of command after running
         BufferedReader commandOutput = new BufferedReader(new InputStreamReader(pingProcess.getInputStream()));
 
-        //forming the RegEx to find time from output line
-        Pattern pattern = Pattern.compile("time=([0-9]+[.]?[0-9]*)");
+        Pattern timePatternInCommandLineOutput = Pattern.compile("time=([0-9]+[.]?[0-9]*)");
 
-        while ((line = commandOutput.readLine()) != null) {
-            Matcher matcher = pattern.matcher(line);
-            if (matcher.find()) {
-                //extract the time value in string format
-                String pingTime = matcher.group();
+        while ((pingOutputLine = commandOutput.readLine()) != null) {
+            Matcher pingTimeMatcher = timePatternInCommandLineOutput.matcher(pingOutputLine);
+            if (pingTimeMatcher.find()) {
+                String pingTime = pingTimeMatcher.group(1);
                 float time = Float.parseFloat(pingTime);
-                pingTimeArray[index++] = time;
+                pingTimeArray[pingTimeArrayIndex++] = time;
             }
         }
-        //sort the array having ping time
-        Arrays.sort(pingTimeArray);
-        int length = pingTimeArray.length;
+        return medianOfAnArray(pingTimeArray);
+    }
+
+    float medianOfAnArray(float numArr[]) {
+        Arrays.sort(numArr);
+        int length = numArr.length;
         int midIndex = length / 2;
         if (length % 2 == 0) {
-            return (pingTimeArray[midIndex] + pingTimeArray[midIndex - 1]) / 2;
-            //finding median in case of odd no of terms (midTerm)
+            return (numArr[midIndex] + numArr[midIndex - 1]) / 2;
         } else {
-            return pingTimeArray[midIndex];
+            return numArr[midIndex];
         }
     }
 }
